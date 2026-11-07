@@ -1,0 +1,83 @@
+
+{% extends 'catalog/base.html' %}
+
+{% block title %}Home - DTI CoursePortal{% endblock %}
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">
+            Welcome to DTI CoursePortal
+        </h1>
+
+        <p class="col-md-8 fs-5 text-secondary">
+            Explore our available courses, learn about course details,
+            and submit inquiries to our department.
+        </p>
+
+        <a href="{% url 'catalog:course_list' %}"
+           class="btn btn-primary btn-lg">
+            Explore Courses
+        </a>
+    </div>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Available Courses</h5>
+
+                <p class="display-4 fw-bold text-primary">
+                    {{ total_courses }}
+                </p>
+
+                <p class="text-muted">
+                    Courses currently available in our catalog.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Featured Course</h5>
+
+                <span class="badge bg-primary">
+                    {{ featured_course.code }}
+                </span>
+
+                <h5 class="mt-2">
+                    {{ featured_course.title }}
+                </h5>
+
+                <p class="text-muted">
+                    {{ featured_course.description }}
+                </p>
+
+                <a href="{% url 'catalog:course_detail' featured_course.id %}"
+                   class="btn btn-outline-primary">
+                    View Course
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="text-center mt-5">
+    <h3>Need More Information?</h3>
+
+    <p class="text-muted">
+        Have questions about our courses? Contact us through the inquiry form.
+    </p>
+
+    <a href="{% url 'catalog:inquiry' %}" class="btn btn-success">
+        Submit an Inquiry
+    </a>
+</div>
+
+{% endblock %}

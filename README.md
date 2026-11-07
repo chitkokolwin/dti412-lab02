@@ -24,7 +24,6 @@ Inquiry submissions are validated and shown on the page; this lab does not save 
 ├── catalog/          # Course pages, inquiry form, and templates
 ├── courseportal/     # Django project settings and URL configuration
 ├── manage.py
-├── requirements.txt
 └── README.md
 ```
 
@@ -53,10 +52,10 @@ Python 3.10 or newer is recommended.
    source .venv/bin/activate
    ```
 
-3. Install dependencies:
+3. Install Django:
 
    ```bash
-   python -m pip install -r requirements.txt
+   python -m pip install "Django==5.2.19"
    ```
 
 4. Set a fresh development secret key for this shell session:
